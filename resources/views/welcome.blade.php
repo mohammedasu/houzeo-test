@@ -214,7 +214,7 @@
 											  '<ul>'+response.message+'</ul>'+
 											'</div>');
 											
-							setTimeout(function(){ $('.success').remove() }, 2000);
+							setTimeout(function(){ $('.success').remove() }, 5000);
 
 						}
 					 }
