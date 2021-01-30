@@ -177,6 +177,7 @@
 			$(document).on('click','.create_user', function(){
 				var $this = $(this);
 				$this.attr('disabled',true);
+				$this.html('Processing...');
 				$.ajax({
 					type: "POST",
 					url: '/create-user',
@@ -186,6 +187,7 @@
 					error:function(e){
 						if(e.responseJSON.error == true){
 							$this.attr('disabled',false);
+							$this.html('Submit');
 							var error = '';
 							$.each(e.responseJSON.message, function(key, value){
 								error += '<li>'+value+'</li>';
@@ -200,6 +202,7 @@
 					},
 					success: function(response){
 						if (response.success == true) {
+							$this.html('Submit');
 							$this.attr('disabled',false);
 							$('input[name="name"]').val('');
 							$('input[name="email"]').val('');
